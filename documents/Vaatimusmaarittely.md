@@ -8,7 +8,7 @@ Käyttäjät voivat tehdä seuraavia asioita
 
 - [ ] (voi lisätä käyttäjän)
 - [ ] voi antaa tai poistaa adminoikeuksia
-- [ ] voi tarkastella kaikkia kokouksia
+- [x] voi tarkastella kaikkia kokouksia
 - [ ] voi tarkastella kaikkia vaaleja
 - [x] voi luoda kokouksen
 - [ ] voi lisätä kokoukselle virkailijoita
@@ -18,6 +18,7 @@ Käyttäjät voivat tehdä seuraavia asioita
 - [x] voi rekisteröityä
 - [x] voi kirjautua sisään
 - [x] voi kirjautua ulos
+- [ ] voi hallinnoida henkilötietojaan
 - [ ] voi muuttaa salasanansa
 - [ ] voi nähdä kokoukset, joihin oikeuksia
 
