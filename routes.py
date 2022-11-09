@@ -1,13 +1,18 @@
 from app import app
 from flask import render_template, request, redirect
 import users
+from user import User
 
 @app.route("/")
 def index():
     user_id = users.user_id()
     if user_id == 0:
         return redirect("/login")
-    return render_template("index.html")
+    
+    this_user = User(user_id)
+    admin = this_user.get_is_admin
+
+    return render_template("index.html", is_admin=admin)
 
 @app.route("/login", methods=["GET", "POST"])
 def login():

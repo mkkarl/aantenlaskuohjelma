@@ -13,11 +13,7 @@ class User:
 
         self.__username = user.username
 
-        sql = "SELECT is_admin FROM users WHERE id=:id"
-        result = db.session.execute(sql, {"id":id})
-        is_admin = result.fetchone()
-
-        self.__is_admin = user.is_admin
+        
         
     @property
     def id(self):
@@ -26,3 +22,13 @@ class User:
     @property
     def username(self):
         return self.__username
+
+    @property
+    def get_is_admin(self):
+
+        sql = "SELECT is_admin FROM users WHERE id=:id"
+        result = db.session.execute(sql, {"id":self.__id})
+
+        is_admin = result.fetchone().is_admin
+        
+        return is_admin

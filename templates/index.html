@@ -2,4 +2,9 @@
 {% block title %}Etusivu{% endblock %}
 {% block content %}
 Hei maailma!
+
+{% if is_admin %}
+<h3>Kokoukset</h3>
+{% endif %}
+
 {% endblock %}

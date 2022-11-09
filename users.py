@@ -4,7 +4,7 @@ from flask import session
 from werkzeug.security import check_password_hash, generate_password_hash
 
 def login(username, password):
-    sql = "SELECT id, password_hash FROM users WHERE username=:username"
+    sql = "SELECT id, password_hash, is_admin FROM users WHERE username=:username"
     result = db.session.execute(sql, {"username":username})
     user = result.fetchone()
     if not user:
@@ -12,6 +12,7 @@ def login(username, password):
     else:
         if check_password_hash(user.password_hash, password):
             session["user_id"] = user.id
+            session["user_is_admin"] = user.is_admin
             return True
         else:
             return False

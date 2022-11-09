@@ -47,3 +47,7 @@ Counting_rounds
 - election_id
 - round_nr
 - *(jollain tapaa laskentakierroksen tulos)*
+
+Counting_round_Canditate
+- Round_id
+- canditate_id
