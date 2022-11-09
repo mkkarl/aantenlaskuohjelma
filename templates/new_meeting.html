@@ -1,6 +1,21 @@
 {% extends "layout.html" %}
 {% block title %}Etusivu{% endblock %}
 {% block content %}
-Kokouksen luonti tulossa...
+<h4>Luo uusi kokous</h4>
+
+<form action="/new_meeting" method="post">
+    <p>
+        Kokouksen nimi: <input type="text" name="meeting">
+    </p>
+    <p>
+        Kokouksen päivä: <input type="date" name="date">
+    </p>
+    <p>
+        Kokouksen aika: <input type="time" name="time">
+    </p>
+    <p>
+        <input type="submit" value="Luo kokous">
+    </p>
+</form>
 
 {% endblock %}
