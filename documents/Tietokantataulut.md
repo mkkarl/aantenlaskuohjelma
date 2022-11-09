@@ -7,13 +7,13 @@ Users
 - *(henkilötietoja)*
 - admin (boolean)
 
-Rights
+Officer_type
 - id
-- rightname
+- officename
 
-Userrights
+User_Officer
 - user_id
-- right_id
+- office_id
 - meeting_id
 
 Meetings
@@ -46,7 +46,6 @@ Counting_rounds
 - id
 - election_id
 - round_nr
-- *(jollain tapaa laskentakierroksen tulos)*
 
 Counting_round_Canditate
 - Round_id
