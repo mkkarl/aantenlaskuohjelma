@@ -2,6 +2,7 @@ from app import app
 from flask import render_template, request, redirect
 import users
 from user import User
+import meetings
 
 @app.route("/")
 def index():
@@ -60,6 +61,16 @@ def new_meeting():
     this_user = User(user_id)
 
     if this_user.get_is_admin:
-        return render_template("new_meeting.html")
+        if request.method == "GET":
+            return render_template("new_meeting.html")
+        if request.method == "POST":
+            meeting_name = request.form["meeting"]
+            meeting_date = request.form["date"]
+            meeting_time = request.form["time"]
+
+            if meetings.new_meeting(meeting_name, meeting_date, meeting_time):
+                return redirect("/")
+            else:
+                return render_template("error.html", message="Kokouksen luonti ei onnistunut")
     else:
         return redirect("/")
