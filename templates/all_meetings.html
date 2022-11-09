@@ -5,4 +5,19 @@
 
 Tähän tulee listaus kaikista kokouksista
 
+<table>
+    <tr>
+        <th>Kokous</th>
+        <th>Pvm</th>
+        <th>Klo</th>
+    </tr>
+    {% for meeting in all_meetings %}
+    <tr>
+        <td>{{ meeting.meeting_name }}</td>
+        <td>{{ meeting.meeting_date }}</td>
+        <td>{{ meeting.meeting_time }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
 {% endblock %}

@@ -75,7 +75,7 @@ def new_meeting():
     else:
         return redirect("/")
 
-@app.route("/all_meetings")
+@app.route("/all_meetings", methods=["GET"])
 def all_meetings():
     user_id = users.user_id()
 
@@ -85,6 +85,7 @@ def all_meetings():
     this_user = User(user_id)
 
     if this_user.get_is_admin:
-        return render_template("all_meetings.html")
+        all_meetings = meetings.all_meetings()
+        return render_template("all_meetings.html", all_meetings=all_meetings)
     else:
         return redirect("/")

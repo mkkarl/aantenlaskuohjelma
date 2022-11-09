@@ -9,3 +9,9 @@ def new_meeting(meeting_name, meeting_date, meeting_time):
     except:
         return False
     return True
+
+def all_meetings():
+    sql = "SELECT id, meeting_name, meeting_date, meeting_time FROM meetings"
+    result = db.session.execute(sql)
+    meetings = result.fetchall()
+    return meetings
