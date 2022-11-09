@@ -49,3 +49,17 @@ def register():
             return redirect("/")
         else:
             return render_template("error.html", message="Rekisteröinti ei onnistunut")
+
+@app.route("/new_meeting", methods=["GET", "POST"])
+def new_meeting():
+    user_id = users.user_id()
+
+    if user_id == 0:
+        return redirect("/login")
+    
+    this_user = User(user_id)
+
+    if this_user.get_is_admin:
+        return render_template("new_meeting.html")
+    else:
+        return redirect("/")
