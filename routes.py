@@ -74,3 +74,17 @@ def new_meeting():
                 return render_template("error.html", message="Kokouksen luonti ei onnistunut")
     else:
         return redirect("/")
+
+@app.route("/all_meetings")
+def all_meetings():
+    user_id = users.user_id()
+
+    if user_id == 0:
+        return redirect("/login")
+    
+    this_user = User(user_id)
+
+    if this_user.get_is_admin:
+        return render_template("all_meetings.html")
+    else:
+        return redirect("/")
