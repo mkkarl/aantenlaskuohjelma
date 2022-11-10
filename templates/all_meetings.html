@@ -3,8 +3,6 @@
 {% block content %}
 <h4>Kaikki kokoukset</h4>
 
-Tähän tulee listaus kaikista kokouksista
-
 <table>
     <tr>
         <th>Kokous</th>
@@ -13,7 +11,7 @@ Tähän tulee listaus kaikista kokouksista
     </tr>
     {% for meeting in all_meetings %}
     <tr>
-        <td>{{ meeting.meeting_name }}</td>
+        <td><a href="/all_meetings/{{ meeting.id }}">{{ meeting.meeting_name }}</a></td>
         <td>{{ meeting.meeting_date }}</td>
         <td>{{ meeting.meeting_time }}</td>
     </tr>
@@ -21,3 +19,4 @@ Tähän tulee listaus kaikista kokouksista
 </table>
 
 {% endblock %}
+

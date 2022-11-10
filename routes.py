@@ -89,3 +89,18 @@ def all_meetings():
         return render_template("all_meetings.html", all_meetings=all_meetings)
     else:
         return redirect("/")
+
+@app.route("/all_meetings/<int:meeting_id>")
+def officers_of_the_meeting(meeting_id):
+    user_id = users.user_id()
+
+    if user_id == 0:
+        return redirect("/login")
+    
+    this_user = User(user_id)
+
+    if this_user.get_is_admin:
+        
+        return render_template("officers_of_the_meeting.html", meeting_id=meeting_id)
+    else:
+        return redirect("/")
