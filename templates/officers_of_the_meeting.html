@@ -1,9 +1,38 @@
 {% extends "layout.html" %}
 {% block title %}Etusivu{% endblock %}
 {% block content %}
-<h4>Kaikki kokoukset</h4>
+<h4>Kokousvirkailijat</h4>
 
 Tähän tulee kokouksen {{ meeting_id }} virkailijoiden hallinta
+
+<table>
+    <tr>
+        <th>Kokousvirkailija</th>
+        <th>Ääntenlaskija</th>
+        <th>Käyttäjä</th>
+    </tr>
+    {% for officer in officers %}
+    <tr>
+        <form>
+            <td>
+                {% if officer.meetingofficer %}
+                <input type="checkbox" checked="checked">
+                {% else %}
+                <input type="checkbox">
+                {% endif %}
+            </td>
+            <td>
+                {% if officer.votecounter %}
+                <input type="checkbox" checked="checked">
+                {% else %}
+                <input type="checkbox">
+                {% endif %}
+            </td>
+            <td>{{ officer.username }}</td>
+        </form>
+    </tr>
+    {% endfor %}
+</table>
 
 
 

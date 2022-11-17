@@ -100,7 +100,7 @@ def officers_of_the_meeting(meeting_id):
     this_user = User(user_id)
 
     if this_user.get_is_admin:
-        
-        return render_template("officers_of_the_meeting.html", meeting_id=meeting_id)
+        officers = users.users_meeting_offices(meeting_id)
+        return render_template("officers_of_the_meeting.html", meeting_id=meeting_id, officers=officers)
     else:
         return redirect("/")

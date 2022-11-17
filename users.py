@@ -32,3 +32,14 @@ def register(username, password):
     
 def user_id():
     return session.get("user_id", 0)
+
+def users_meeting_offices(meeting_id):
+    sql = """SELECT users.id, users.username, O.meetingofficer, O.votecounter
+        FROM
+        users LEFT JOIN (SELECT * FROM officers WHERE meeting_id=:meeting_id) O ON users.id = O.user_id;"""
+    result = db.session.execute(sql, {"meeting_id":meeting_id})
+    users = result.fetchall()
+    if not users:
+        return False
+    else:
+        return users

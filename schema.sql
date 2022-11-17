@@ -11,3 +11,10 @@ CREATE TABLE meetings (
     meeting_date DATE,
     meeting_time TIME
 );
+
+CREATE TABLE Officers (
+    user_id INTEGER,
+    meeting_id INTEGER,
+    meetingofficer BOOLEAN,
+    votecounter BOOLEAN
+);
