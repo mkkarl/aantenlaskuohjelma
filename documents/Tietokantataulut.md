@@ -7,14 +7,11 @@ Users
 - *(henkilötietoja)*
 - admin (boolean)
 
-Officer_type
-- id
-- officename
-
-User_Officer
+Officers
 - user_id
-- office_id
 - meeting_id
+- meetingofficer (boolean)
+- votecounter (boolean)
 
 Meetings
 - id
