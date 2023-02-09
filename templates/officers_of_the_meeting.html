@@ -11,6 +11,7 @@ Tähän tulee kokouksen {{ meeting_id }} virkailijoiden hallinta
         <th>Ääntenlaskija</th>
         <th>Käyttäjä</th>
     </tr>
+    {% if officers %}
     {% for officer in officers %}
     <tr>
         <form>
@@ -23,15 +24,19 @@ Tähän tulee kokouksen {{ meeting_id }} virkailijoiden hallinta
             </td>
             <td>
                 {% if officer.votecounter %}
-                <input type="checkbox" checked="checked">
+                <input type="checkbox" checked>
                 {% else %}
                 <input type="checkbox">
                 {% endif %}
             </td>
             <td>{{ officer.username }}</td>
+            <td>
+                <button type="button">Tallenna</button>
+            </td>
         </form>
     </tr>
     {% endfor %}
+    {% endif %}
 </table>
 
 
